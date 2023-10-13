@@ -3,12 +3,12 @@
 /**
  * get_specifier - find the function
  * @s: the string
- * Return: the number of char printed 
+ * Return: the number of char printed
  */
 
 int (*get_specifier(char *s))(va_list ap; params_t *params)
 {
-	specifier_t specifiers[]={
+	specifier_t specifiers[] = {
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
@@ -26,7 +26,7 @@ int (*get_specifier(char *s))(va_list ap; params_t *params)
 		{NULL, NULL}
 	};
 	int i = 0;
-	
+
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
@@ -40,11 +40,11 @@ int (*get_specifier(char *s))(va_list ap; params_t *params)
 
 
 /**
- * get_Print_func - find the func
+ * get_print_func - find the func
  * @s: the string
- * @ap: argument pointer 
- * @params: the parameter struct 
- * Return: the number of char printed 
+ * @ap: argument pointer
+ * @params: the parameter struct
+ * Return: the number of char printed
  */
 
 int get_print_func(char *s, va_list ap, params_t *params)
@@ -58,7 +58,7 @@ int get_print_func(char *s, va_list ap, params_t *params)
 
 /**
  * get_flag - find the flag
- * @s: the string 
+ * @s: the string
  * @params: the parameter
  * Return: if flag return 1 else return 0
  */
@@ -70,7 +70,7 @@ int get_flag(char *s, params_t *params)
 	switch (*s)
 	{
 		case '+':
-			i= params->plus_flag = 1;
+			i = params->plus_flag = 1;
 			break;
 		case ' ':
 			i = params->space_flag = 1;
@@ -109,12 +109,12 @@ int get_modifier(char *s, params_t *params)
 			i = params->l_modifier = 1;
 			break;
 	}
-	return (i)
+	return (i);
 }
 
 /**
  * get_width - get the width of string
- * @S: the string
+ * @s: the string
  * @params: the parameters
  * @ap: the argument pointer
  * Return: new pointer
@@ -124,9 +124,9 @@ char *get_width(char *s, params_t params, va_list ap)
 {
 	int d = 0;
 
-	if(*s == '*')
+	if (*s == '*')
 	{
-		d= va_arg(ap, int);
+		d = va_arg(ap, int);
 		s++;
 	}
 	else
