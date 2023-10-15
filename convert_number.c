@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
  * print_hex- prints unsigned hex num in lowercase
@@ -13,12 +14,10 @@ int print_hex(va_list ap, params_t *params)
 	int c = 0;
 	char *str;
 
-	if (params->l_modifier)
-		l = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_modifier)
+	if (params->h_modifier)
 		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
-		l = (unsigned int)va_arg(ap_arg(ap, unsigned int);
+		l = (unsigned int)va_arg(ap, unsigned int);
 
 	str = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 	if (params->hashtag_flag && l)
@@ -48,7 +47,7 @@ int print_HEX(va_list ap, params_t *params)
 	else if (params->h_modifier)
 		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
-		l = (unsigned int)va_arg(ap_arg(ap, unsigned int);
+		l = (unsigned int)va_arg(ap, unsigned int);
 
 	str = convert(l, 16, CONVERT_UNSIGNED, params);
 	if (params->hashtag_flag && l)
@@ -93,7 +92,7 @@ int print_octal(va_list ap, params_t *params)
 	if (params->l_modifier)
 		l = (unsigned long)va_arg(ap, unsigned long);
 	else if (params->h_modifier)
-		l = (unsigned shor int)va_arg(ap, unsigned int);
+		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
 		l = (unsigned int)va_arg(ap, unsigned int);
 	str = convert(l, 8, CONVERT_UNSIGNED, params);
