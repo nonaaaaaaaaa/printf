@@ -6,7 +6,7 @@
  * Return: the number of char printed
  */
 
-int (*get_specifier(char *s))(va_list ap; params_t *params)
+int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
 	specifier_t specifiers[] = {
 		{"c", print_char},
@@ -33,7 +33,7 @@ int (*get_specifier(char *s))(va_list ap; params_t *params)
 		{
 			return (specifiers[i].f);
 		}
-		i++
+		i++;
 	}
 	return (NULL);
 }
@@ -49,7 +49,7 @@ int (*get_specifier(char *s))(va_list ap; params_t *params)
 
 int get_print_func(char *s, va_list ap, params_t *params)
 {
-	int (*f)(va_list, params_t *) = get specifier(s);
+	int (*f)(va_list, params_t *) = get_specifier(s);
 
 	if (f)
 		return (f(ap, params));
@@ -103,7 +103,7 @@ int get_modifier(char *s, params_t *params)
 	switch (*s)
 	{
 		case 'h':
-			i = params->h_mosifier = 1;
+			i = params->h_modifier = 1;
 			break;
 		case 'l':
 			i = params->l_modifier = 1;
@@ -120,7 +120,7 @@ int get_modifier(char *s, params_t *params)
  * Return: new pointer
  */
 
-char *get_width(char *s, params_t params, va_list ap)
+char *get_width(char *s, params_t *params, va_list ap)
 {
 	int d = 0;
 

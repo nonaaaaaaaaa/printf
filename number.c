@@ -77,7 +77,11 @@ int print_address(va_list ap, params_t *params)
 	if (!n)
 		return (_puts("nil"));
 
+<<<<<<< HEAD
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+=======
+	str = convert(n, 16,CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+>>>>>>> 77a420d3599c87a7198055054c68b17120ea210e
 	*--str = 'x';
 	*--str = '0';
 	return (print_number(str, params));
