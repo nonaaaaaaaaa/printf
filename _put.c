@@ -1,4 +1,6 @@
 #include "main.h"
+#include <unistd.h>
+#define OUTPUT_BUF_SIZE 1024
 
 /**
  * _puts - print a string
@@ -24,15 +26,17 @@ int _puts(char *str)
 int _putchar(int c)
 {
 	static int i;
-
-	static char buf(OUTPUT_BUF_SIZE);
+	static char buf[OUTPUT_BUF_SIZE];
 
 	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{
-		write(1, buf, i);
+		if (write(1, buf, i) == -1)
+		{
+			return (-1);
+		}
 		i = 0;
 	}
-	if (c != BIF_FLISH)
+	if (c != BUF_FLUSH)
 		buf[i++] = c;
 	return (1);
 }
