@@ -26,13 +26,13 @@ char *convert(long int num, int base, int flags, params_t *params)
 	array = flags & CONVERT_LOWERCASE ?
 		"0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
-	*ptr = '\0'';
+	*ptr = '\0';
 
 	do
 	{
-		*--ptr = araay[n % base];
+		*--ptr = array[n % base];
 		n /= base;
-	} while(n != 0)
+	} while(n != 0);
 
 	if (sign)
 		*--ptr = sign;
@@ -74,11 +74,10 @@ int print_address(va_list ap, params_t *params)
 	char *str;
 
 	if (!n)
-		return (_puts("nil)");
+		return (_puts("nil"));
 
-	str = convert(n, 16,
-		CONVERT_UNSIGNED \ CONVERT_LOWERCASE, params);
+	str = convert(n, 16,CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 	*--str = 'x';
 	*--str = '0';
-	return (print_number(str, params);
+	return (print_number(str, params));
 }
