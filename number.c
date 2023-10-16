@@ -78,10 +78,14 @@ int print_address(va_list ap, params_t *params)
 		return (_puts("nil"));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 =======
 	str = convert(n, 16,CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 >>>>>>> 77a420d3599c87a7198055054c68b17120ea210e
+=======
+	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+>>>>>>> 4a30ee9ce824870ec9537cf2cf81559c2d334208
 	*--str = 'x';
 	*--str = '0';
 	return (print_number(str, params));

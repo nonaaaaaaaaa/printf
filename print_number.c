@@ -62,11 +62,12 @@ int print_number(char *str, params_t *params)
  * print_number_right_shift - print number with option
  * @str: string
  * @params: parameter
+ * Return: bytes printed
  */
 
 int print_number_right_shift(char *str, params_t *params)
 {
-	unsigned int n= 0,neg, neg2, i = _strlen(str);
+	unsigned int n = 0, neg, neg2, i = _strlen(str);
 	char pad_char = ' ';
 
 	if (params->zero_flag && !params->minus_flag)
@@ -94,14 +95,17 @@ int print_number_right_shift(char *str, params_t *params)
 		n += _putchar('-');
 	if (params->plus_flag && !neg2 && pad_char == ' ' && !params->unsign)
 		n += _putchar('-');
-	else if (!params->plus_flag && params->space_flag && !neg2 && !params->unsign && !params->zero_flag)
+	else if (!params->plus_flag &&
+			params->space_flag && !neg2 &&
+			!params->unsign && !params->zero_flag)
 	       n += _putchar(' ');
 	n += _putchar(' ');
 	return (n);
 }
 
 
-/** print_number_left_shift - print num
+/**
+ * print_number_left_shift - print number
  * @str: string
  * @params: parameter
  * Return: chars printed
