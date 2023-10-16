@@ -1,0 +1,8 @@
+f (params->l_modifier)
+      |            ^~
+number.c:54:17: error: ‘params_t’ {aka ‘struct format’} has no member named ‘h_modifier’
+   54 |  else if (params->h_modifier)
+      |                 ^~
+number.c:58:8: error: ‘params_t’ {aka ‘struct format’} has no member named ‘unsign’
+   58 |  params->unsign = 1;
+      |        ^~

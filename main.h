@@ -49,6 +49,21 @@ typedef struct format
 } params_t;
 
 /**
+ * struct params_t - parameters for operation
+ * @l_modifier: indicate if 'l' is used
+ * @h_modifier: indicate if 'h' is used
+ * @unsign: the value is unsign
+ *
+ */
+
+struct params_t {
+	int l_modifier;
+	int h_modifier;
+	int unsign;
+
+};
+
+/**
  * struct specifier - struct token
  * @specifier: format token
  * @f: function associated
@@ -58,6 +73,7 @@ typedef struct specifier
 	char *specifier;
 	int (*f)(va_list, params_t *);
 } specifier_t;
+
 
 /* _puts.c part */
 int _puts(char *str);
