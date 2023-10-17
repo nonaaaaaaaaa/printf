@@ -17,8 +17,28 @@ int print_string(va_list s)
 		my_string = "(null)";
 	while (my_string[i])
 	{
-		_putchar(my_string[i]);
+		if (my_string[i] < 32 || my_string[i] >= 127)
+			print_custom(my_string[i];
+		else
+			_putchar(my_string[i]);
 		i++;
 	}
 	return (i);
+}
+
+/**
+ * print_custom - print non printable char
+ * @v: int
+ * Return: void
+ */
+
+void print_custom(int v)
+{
+	int hi = v / 16;
+	int lo = v % 16;
+
+	putchar('\\');
+	putchar('x');
+	putchar(hi < 10 ? '0' + hi : 'A' + hi - 10);
+	putchar(lo < 10 ? '0' + lo : 'A' + lo - 10);
 }
