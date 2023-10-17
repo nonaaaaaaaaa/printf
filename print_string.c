@@ -37,8 +37,8 @@ void print_custom(int v)
 	int hi = v / 16;
 	int lo = v % 16;
 
-	putchar('\\');
-	putchar('x');
-	putchar(hi < 10 ? '0' + hi : 'A' + hi - 10);
-	putchar(lo < 10 ? '0' + lo : 'A' + lo - 10);
+	_putchar('\\');
+	_putchar('x');
+	_putchar(hi < 10 ? '0' + hi : 'A' + hi - 10);
+	_putchar(lo < 10 ? '0' + lo : 'A' + lo - 10);
 }
