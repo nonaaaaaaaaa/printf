@@ -15,8 +15,8 @@ int print_octal(va_list o);
 int print_x(va_list x);
 int print_X(va_list X);
 int print_rot13(va_list R);
-void print_custom(int v);
-void custom_print(char *s);
+int print_custom(int v);
+int custom_print(va_list s);
 
 /**
   * struct code_format - Struct format

@@ -29,7 +29,7 @@ int print_string(va_list s)
  * Return: void
  */
 
-void print_custom(int v)
+int print_custom(int v)
 {
 	int hi = v / 16;
 	int lo = v % 16;
@@ -38,23 +38,29 @@ void print_custom(int v)
 	_putchar('x');
 	_putchar(hi < 10 ? '0' + hi : 'A' + hi - 10);
 	_putchar(lo < 10 ? '0' + lo : 'A' + lo - 10);
+	return (4);
 }
 /**
  * custom_print - print custom
  * @s: string
  * Return: void
  */
-void custom_print(char *s)
+int custom_print(va_list s)
 {
-	while (*s)
+	char *b;
+	int i = 0;
+	
+	b = va_arg(s, char *);
+	while (*b)
 	{
-		if (*s < 32 || *s >= 127)
+		if (*b < 32 || *b >= 127)
 		{
-			print_hex(*s);
+			i += print_custom(*b);
 		} else
 		{
-			_putchar(*s);
+			i += _putchar(*b);
 		}
 		s++;
 	}
+	return (i);
 }
