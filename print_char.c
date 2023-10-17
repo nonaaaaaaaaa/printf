@@ -9,10 +9,10 @@
  */
 int print_char(va_list c)
 {
-	unsigned char my_char;
+	unsigned char var;
 
-	my_char = va_arg(c, int);
-	_putchar(my_char);
+	var = va_arg(c, int);
+	_putchar(var);
 	return (1);
 }
 /**

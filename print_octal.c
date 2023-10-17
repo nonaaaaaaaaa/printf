@@ -3,33 +3,33 @@
 * print_octal - unsigned int argument is converted to unsigned octal
 * @o: unsigned to be converted
 * Descriptions: prints unsigned octal
-* Return: size the output
+* Return: size
 */
 int print_octal(va_list o)
 {
-	unsigned int len, powten, j, digit, n, num;
-	int count = 0;
+	unsigned int bin, sc, j, sd, n, vum;
+	int i = 0;
 
 	n = va_arg(o, unsigned int);
 	if (n != 0)
 	{
-		num = n;
-		len = 0;
-		while (num != 0)
+		vum = n;
+		bin = 0;
+		while (vum != 0)
 		{
-			num /= 8;
-			len++;
+			vum /= 8;
+			bin++;
 		}
-		powten = 1;
-		for (j = 1; j <= len - 1; j++)
-			powten *= 8;
-		for (j = 1; j <= len; j++)
+		sc = 1;
+		for (j = 1; j <= bin - 1; j++)
+			sc *= 8;
+		for (j = 1; j <= bin; j++)
 		{
-			digit = n / powten;
-			_putchar(digit + '0');
-			count++;
-			n -= digit * powten;
-			powten /= 8;
+			sd = n / sc;
+			_putchar(sd + '0');
+			i++;
+			n -= sd * sc;
+			sc /= 8;
 		}
 	}
 	else
@@ -37,5 +37,5 @@ int print_octal(va_list o)
 		_putchar('0');
 		return (1);
 	}
-	return (count);
+	return (i);
 }

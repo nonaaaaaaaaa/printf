@@ -8,29 +8,29 @@
 */
 int print_bin(va_list b)
 {
-	unsigned int len, powten, j, digit, n, num;
+	unsigned int bin, sc, j, sd, n, vum;
 	int count = 0;
 
 	n = va_arg(b, unsigned int);
 	if (n != 0)
 	{
-		num = n;
-		len = 0;
-		while (num != 0)
+		vum = n;
+		bin = 0;
+		while (vum != 0)
 		{
-			num /= 2;
-			len++;
+			vum /= 2;
+			bin++;
 		}
-		powten = 1;
-		for (j = 1; j <= len - 1; j++)
-			powten *= 2;
-		for (j = 1; j <= len; j++)
+		sc = 1;
+		for (j = 1; j <= bin - 1; j++)
+			sc *= 2;
+		for (j = 1; j <= bin; j++)
 		{
-			digit = n / powten;
-			_putchar(digit + '0');
+			sd = n / sc;
+			_putchar(sd + '0');
 			count++;
-			n -= digit * powten;
-			powten /= 2;
+			n -= sd * sc;
+			sc /= 2;
 		}
 	}
 	else

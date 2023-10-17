@@ -3,11 +3,11 @@
 * print_int - function that prints an integer
 * @i: integer to print
 * Descriptions: prints digit with _putchar
-* Return: size the output text
+* Return: size
 */
 int print_int(va_list i)
 {
-	int len, powten, j, digit, n, count = 0, num;
+	int bin, sc, j, sd, n, k = 0, vum;
 
 	n = va_arg(i, int);
 	if (n != 0)
@@ -15,28 +15,28 @@ int print_int(va_list i)
 		if (n < 0)
 		{
 			_putchar('-');
-			count++;
+			k++;
 		}
-		num = n;
-		len = 0;
-		while (num != 0)
+		vum = n;
+		bin = 0;
+		while (vum != 0)
 		{
-			num /= 10;
-			len++;
+			vum /= 10;
+			bin++;
 		}
-		powten = 1;
-		for (j = 1; j <= len - 1; j++)
-			powten *= 10;
-		for (j = 1; j <= len; j++)
+		sc = 1;
+		for (j = 1; j <= bin - 1; j++)
+			sc *= 10;
+		for (j = 1; j <= bin; j++)
 		{
-			digit = n / powten;
+			sd = n / sc;
 			if (n < 0)
-				_putchar((digit * -1) + 48);
+				_putchar((sd * -1) + 48);
 			else
-				_putchar(digit + '0');
-			count++;
-			n -= digit * powten;
-			powten /= 10;
+				_putchar(sd + '0');
+			k++;
+			n -= sd * sc;
+			sc /= 10;
 		}
 	}
 	else
@@ -44,5 +44,5 @@ int print_int(va_list i)
 		_putchar('0');
 		return (1);
 	}
-	return (count);
+	return (k);
 }
