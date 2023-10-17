@@ -17,14 +17,7 @@ int print_string(va_list s)
 		my_string = "(null)";
 	while (my_string[i])
 	{
-		if (my_string[i] < 32 || my_string[i] >= 127)
-		{	
-			print_custom(my_string[i]);
-		}
-		else
-		{
-			_putchar(my_string[i]);
-		}
+		_putchar(my_string[i]);
 		i++;
 	}
 	return (i);
