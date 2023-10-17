@@ -39,3 +39,22 @@ void print_custom(int v)
 	_putchar(hi < 10 ? '0' + hi : 'A' + hi - 10);
 	_putchar(lo < 10 ? '0' + lo : 'A' + lo - 10);
 }
+/**
+ * custom_print - print custom
+ * @s: string
+ * Return: void
+ */
+void custom_print(char *s)
+{
+	while (*s)
+	{
+		if (*s < 32 || *s >= 127)
+		{
+			print_hex(*s);
+		} else
+		{
+			_putchar(*s);
+		}
+		s++;
+	}
+}
