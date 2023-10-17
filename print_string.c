@@ -49,7 +49,7 @@ int custom_print(va_list s)
 {
 	char *b;
 	int i = 0;
-	
+
 	b = va_arg(s, char *);
 	while (*b)
 	{
@@ -60,7 +60,7 @@ int custom_print(va_list s)
 		{
 			i += _putchar(*b);
 		}
-		s++;
+		b++;
 	}
 	return (i);
 }
