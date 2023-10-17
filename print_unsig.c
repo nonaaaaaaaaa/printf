@@ -7,27 +7,27 @@
 */
 int print_unsig(va_list u)
 {
-	unsigned int len, powten, j, digit, n, num;
-	int count = 0;
+	unsigned int length, powten, j, digit, n, num;
+	int counter = 0;
 
 	n = va_arg(u, unsigned int);
 	if (n != 0)
 	{
 		num = n;
-		len = 0;
+		length = 0;
 		while (num != 0)
 		{
 			num /= 10;
-			len++;
+			length++;
 		}
 		powten = 1;
-		for (j = 1; j <= len - 1; j++)
+		for (j = 1; j <= length - 1; j++)
 			powten *= 10;
-		for (j = 1; j <= len; j++)
+		for (j = 1; j <= length; j++)
 		{
 			digit = n / powten;
 			_putchar(digit + '0');
-			count++;
+			counter++;
 			n -= digit * powten;
 			powten /= 10;
 		}
@@ -37,5 +37,5 @@ int print_unsig(va_list u)
 		_putchar('0');
 		return (1);
 	}
-	return (count);
+	return (counter);
 }
